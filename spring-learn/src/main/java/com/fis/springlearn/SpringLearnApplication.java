@@ -7,10 +7,11 @@ import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.fis.springlearn.bean.employee;
 
 @SpringBootApplication
 public class SpringLearnApplication {
@@ -20,7 +21,16 @@ public class SpringLearnApplication {
 //		SpringApplication.run(SpringLearnApplication.class, args);
 //		displayDate();
 //		displayCountry();
-		displayCountries();
+//		displayCountries();
+		displayEmployee();
+	}
+
+	static void displayEmployee() {
+		LOGGER.info("START");
+		ApplicationContext context = new ClassPathXmlApplicationContext("employee.xml");
+		employee employee = context.getBean("employee", employee.class);
+		LOGGER.debug("Employee : {}", employee);
+		LOGGER.info("END");
 	}
 
 	static void displayCountries() {
